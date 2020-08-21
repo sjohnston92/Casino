@@ -17,8 +17,29 @@ class Dice
  end 
 end
 
-#Example
-#d = Dice.new
-#d.show_dice
-#puts
-#d.show_sum
+def dice_game
+  d = Dice.new
+  d.show_dice
+  puts
+  d.show_sum
+  end
+
+def dice_prompt
+  puts "Would you like to play? (y/n)"
+  craps_answer=gets.chomp
+  if craps_answer == "y"
+    dice_game
+  
+  else craps_answer != "y"
+    puts "Try one of other great Games"
+  end
+
+end
+
+
+
+
+#Start of the Game
+puts "Welcome to the games of Craps"
+dice_prompt
+
