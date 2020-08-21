@@ -1,3 +1,5 @@
+require_relative "card"
+
  class Deck
  # Getter and Setter methods for rank, suit and color
  attr_accessor :cards
