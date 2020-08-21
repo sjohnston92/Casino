@@ -1,1 +1,1 @@
-#hello
+require_relative "dish"
