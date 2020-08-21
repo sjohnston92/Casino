@@ -3,20 +3,38 @@
 
 require_relative "deck"
 require_relative "card"
+@player_hand = []
+@dealer_hand = []
 
 def blackjack_start
 @d = Deck.new
+p @d.class
+#assigning value to each cards (easier to do add for these that have suits).
+#need to do prior to shuffle cards as it will change it into array
+
 @d = @d.shuffle_cards
-test1
+
+start_deal
+
+puts "player hands:"
+print @player_hand
+puts
+puts "dealer hands"
+print @dealer_hand
 end
 
-#assigning value to each cards (easier to do add for these that have suits)
-
-def test1
-    p @d.class #just to remind what class this is
+def start_deal
+    #Deal cards to player and dealer
+    deal(@player_hand)
+    deal(@dealer_hand)
+    deal(@player_hand)
+    deal(@dealer_hand)
 end
 
-
+# Dealing a card (taking card out of "d"eck and put into x (hand))
+def deal(x)
+    x << @d.shift
+end
 # dealer deal a card to player
 # dealer deal a card to dealer (may need to make it hidden)
 
