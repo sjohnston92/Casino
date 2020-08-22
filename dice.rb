@@ -1,3 +1,6 @@
+#******** Dice Game by Simon Johnston ################
+
+
 require_relative "customer"
 
 
@@ -78,7 +81,7 @@ def dice_prompt
 end
 
 
-dice_prompt
+# dice_prompt
 
 
 
