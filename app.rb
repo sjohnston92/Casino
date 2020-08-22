@@ -1,1 +1,1 @@
-require_relative "dish"
+require_relative "dice"
