@@ -14,12 +14,12 @@ require_relative "card"
  end
 
  def shuffle_cards
-  puts @cards
+  puts "shuffling cards"
   @cards.shuffle
   puts @cards
  end
  
- def generate_deck
+  def generate_deck
    @suits.each do |suit|
      @ranks.size.times do |i|
        # Ternary Operator
