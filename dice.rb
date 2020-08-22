@@ -9,43 +9,43 @@ class Dice
   def roll
     @die1 = 1 + rand(6)
     @die2 = 1 + rand(6) 
+    
   end
+
   
   def show_dice
-    print "Die1: ", @die1, " Die2:", @die2
+    die_total = ((@die1 + @die2))
+    puts "Die 1:#{@die1} Die 2:#{@die2}"
+    
+    puts "Your total is: #{die_total}"
   end
   
-  def show_sum
-    print "Sum of dice is ", @die1 + @die2, ".\n"
+  def dice_sum
+    die_total = ((@die1 + @die2))
   end 
  end
 
-#  d = Dice.new
-#  d.show_dice
-#  puts
-#  d.show_sum
 
-
+@current_player=Customer.new(100, "bob")
  
-def prompt
+#start of the game
 
-
+def dice_prompt
   puts "Would you like to roll the dice? (y/n)"
-  @current_player=Customer.new(100, "bob")
-
   start_answer = gets.chomp
   if start_answer == "y" && @current_player.wallet_balence > 0
-    puts "Place your bets. You have #{@current_player.wallet_balence} chips left"
+    puts "Place your bet. You have #{@current_player.wallet_balence} chips left"
     bet = gets.chomp
     while true
       if (@current_player.wallet_balence.to_i - bet.to_i) < 0
-        puts 'You dont have that much to bet!'
+        puts "You dont have that much to bet!"
         bet = gets.chomp
+        dice_prompt
       else
         break
       end
     end
-    if bet.to_i > 25
+    if bet.to_i >= 25
       puts bet.to_s + "! We have a high roller in the house everyone!"
       puts "I'll roll two dice. What do you think the total will be?"
     else
@@ -53,23 +53,31 @@ def prompt
     end
     guess_for_total = gets.chomp
     @d=Dice.new
-    @d = Dice.new
     @d.show_dice
     puts
-    @d.show_sum
-    
-  
+    if @d.dice_sum.to_i == guess_for_total.to_i
+      puts "Winner, WInner Chicken Dinner"
+      puts @d.dice_sum
+      @current_player.wallet_balence = @current_player.wallet_balence.to_i + bet.to_i
+      puts "Your current balence is: #{@current_player.wallet_balence}"
+      dice_prompt
+    else
+      puts "You Loose!"
+      @current_player.wallet_balence = @current_player.wallet_balence.to_i - bet.to_i
+      puts "Your total is #{@current_player.wallet_balence}"
+      dice_prompt
+    end
     
   else
     puts "Good Bye, enjoy one of our other games!"
     
   end
-  #put customer wallet balance here
+  
 
 end
 
 
-prompt
+dice_prompt
 
 
 
