@@ -73,6 +73,10 @@ system "clear"
 puts "Your cards:"
 show_card(@player_hand)
 puts "Total Value of your card: #{@player_score}"
+puts
+puts "Dealer's Cards"
+puts "[--------] [#{@dealer_hand[1].rank} #{@dealer_hand[1].suit}]"
+
 
 if @player_score == 21 #need to add count of card, if 2, go this, else, ignore this
     puts "BLACKJACK!"
