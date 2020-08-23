@@ -3,8 +3,6 @@
 
 require_relative "deck"
 require_relative "card"
-@player_hand = []
-@dealer_hand = []
 @player_bank = 1000 #need to change this to pull via game menu
 
 def blackjack_start
@@ -19,6 +17,10 @@ def blackjack_start
  card_value_set(@d)
 
  place_bet
+
+ #setting up, or clearing the hand
+@player_hand = []
+@dealer_hand = []
 
 #start dealling
 start_deal
@@ -41,8 +43,22 @@ end
 
 def place_bet
     ###TODO: Add Bet here
-puts "add bets"
-@player_bet = gets.chomp 
+puts "Please place your bet (Available Balance: $#{@player_bank})"
+@player_bet = gets.chomp.to_i
+if @player_bet > @player_bank
+    puts "Insuffient Funds"
+    place_bet
+elsif @player_bet < 5
+    puts "Minimum Bet is $5"
+    place_bet
+else
+    puts "Betting for $#{@player_bet}! Let's go!"
+    @player_bank -= @player_bet
+    sleep(2)
+end
+
+
+
 end
 
 def player_turn
@@ -60,6 +76,9 @@ puts "Total Value of your card: #{@player_score}"
 
 if @player_score == 21 #need to add count of card, if 2, go this, else, ignore this
     puts "BLACKJACK!"
+    @player_bet = (@player_bet * 3)
+    puts "You have won $#{@player_bet}"
+    @player_bank =+ @player_bet
     endgame #win bet
     exit
 
@@ -163,7 +182,17 @@ def show_card(x)
 end
 
 def endgame
-#Play again? if yes, go to blackjack_start
+puts "Would you like to play again? (y/n)"
+user_selection = gets.chomp
+case user_selection
+when 'y'
+    blackjack_start
+when 'n'
+    exit
+else 
+    puts "try again"
+end
+    #Play again? if yes, go to blackjack_start
 
 puts "End Game Options here to redo game or quit"
 
