@@ -19,11 +19,11 @@ def blackjack_start
 
  #setting value
  card_value_set(@d)
-p @d    
 
 #start dealling
 start_deal
 
+system "clear"
 #show card TODO: hide dealer's first card
 puts "player hands:"
 show_card(@player_hand)
@@ -31,10 +31,18 @@ puts
 puts "dealer hands"
 show_card(@dealer_hand)
 
+place_bet
+
 player_turn
 dealer_turn
 endgame
 
+end
+
+def place_bet
+    ###TODO: Add Bet here
+puts "add bets"
+@player_bet = gets.chomp 
 end
 
 def player_turn
@@ -45,6 +53,7 @@ def player_turn
 @player_hand.each do |x|
     @player_score += x.value 
 end
+system "clear"
 puts "Your cards:"
 show_card(@player_hand)
 puts "Total Value of your card: #{@player_score}"
@@ -93,8 +102,6 @@ end
 def card_value_set(x)
     #Assigning cards value
    x.each do |cards|
-       p cards
-       p cards.rank
        if cards.rank == "J" || cards.rank == "Q" || cards.rank == "K"
            cards.value = 10
        elsif cards.rank == ( "A" )
@@ -102,7 +109,6 @@ def card_value_set(x)
        else
            cards.value = cards.rank.to_i
        end
-       p cards
        end
 end
 
@@ -131,7 +137,6 @@ def endgame
 #Play again? if yes, go to blackjack_start
 
 puts "End Game Options here to redo game or quit"
-
 
 #if not, return the following information back: Win/Lose Stats, Money Won.
 
