@@ -5,11 +5,9 @@ require_relative "deck"
 require_relative "card"
 @player_hand = []
 @dealer_hand = []
-@player_bank = 1000
+@player_bank = 1000 #need to change this to pull via game menu
 
 def blackjack_start
-
- #need to change this to pull via game menu
 
 #Create new Deck
 @d = Deck.new
@@ -19,6 +17,8 @@ def blackjack_start
 
  #setting value
  card_value_set(@d)
+
+ place_bet
 
 #start dealling
 start_deal
@@ -31,7 +31,7 @@ puts
 puts "dealer hands"
 show_card(@dealer_hand)
 
-place_bet
+
 
 player_turn
 dealer_turn
@@ -47,9 +47,9 @@ end
 
 def player_turn
 # sum the player's card. if 21, black jack, pay 2.5 
-# sum the dealer card
 @player_score = 0
 
+#show player's card. need to show dealer's one card.
 @player_hand.each do |x|
     @player_score += x.value 
 end
@@ -88,15 +88,44 @@ end
 end
 
 def dealer_turn
+    system "clear"
+    puts "Your cards:"
+    show_card(@player_hand)
+    puts "Total Value of your card: #{@player_score}"
+    puts 
+    puts "Dealer's Cards"
+    # reveal Dealer's cards
+    show_card (@dealer_hand)
     @dealer_score = 0
+    @dealer_hand.each do |x|
+        @dealer_score += x.value 
+    end
+    puts "Total Value of Dealer's Card: #{@dealer_score}"
 
-# reveal Dealer's first card
+    sleep(1)
+    
 # if Stand, Dealer's total is less than 16, hit for dealer
+    case @dealer_score 
+    when 0..16 then
+        puts "Dealer deal another card"
+        deal(@dealer_hand)
+        dealer_turn
+    when 17..21 then
+        puts "Dealer have hit the limit"
+        compare_card
+    when 22..30 then
+        puts "Dealer Busted, you Win!"
+        #Add player winning bet
+        endgame
+        exit
+    end
 
 # if over 17, beat other card, Lose
 # if over 17, player card beat, win
+end
 
-
+def compare_card
+    puts "Comparing card."
 end
 
 def card_value_set(x)
