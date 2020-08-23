@@ -8,7 +8,10 @@ class Highandlow
     end
     #placing two cards on desk only showing one 
     def displaying_card
-        
+        puts "*** High and Low ***"
+        puts "welcome to the game"
+        puts "Shuffeling cards..."
+          @cards
     end
     #players place bet in a pull 
     def players
@@ -21,4 +24,11 @@ class Highandlow
 
     end
 end 
-  
+ 
+vic = Highandlow.new
+vic.displaying_card
+
+
+
+
+

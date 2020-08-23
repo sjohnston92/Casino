@@ -14,9 +14,9 @@ require_relative "card"
  end
 
  def shuffle_cards
-  puts "shuffling cards"
+  #puts "shuffling cards"
   @cards.shuffle
-  puts @cards
+  #puts @cards
  end
  
   def generate_deck
@@ -35,3 +35,6 @@ require_relative "card"
     end
   end
 end
+
+# vic = Deck.new
+# puts vic.generate_deck
