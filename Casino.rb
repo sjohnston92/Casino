@@ -11,6 +11,7 @@ class Casino
         puts "#{index + 1}) #{games}"
       end
     end
+    
   end
 
   end
