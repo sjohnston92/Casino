@@ -45,9 +45,10 @@ def dice_prompt
     bet = gets.chomp
     while true
       if (@current_player.wallet_balence.to_i - bet.to_i) < 0
-        puts "You dont have that much to bet!"
+        puts "You dont have that much to bet, please replace your bet!"
         bet = gets.chomp
-        dice_prompt
+        break
+
       else
         break
       end
@@ -64,7 +65,7 @@ def dice_prompt
     puts
     case @d.dice_sum
     when 7 || 11
-      if guess_for_total.to_i == @d.dice_sum.to_i
+      if guess_for_total.to_i === @d.dice_sum.to_i
       puts "Winner Winner Chicken Dinner"
       puts "You won #{bet.to_1*2}"
       @current_player.wallet_balence = @current_player.wallet_balence.to_i + bet.to_i*2
@@ -79,7 +80,7 @@ def dice_prompt
       end
     when 2
       puts "Snake Eyes, You Lost big time"
-      puts "You lost #{bet*2}"
+      puts "You lost #{bet.to_i*2}"
       @current_player.wallet_balence = @current_player.wallet_balence.to_i - bet.to_i*2
       puts "Your balance is #{@current_player.wallet_balence}"
       dice_prompt
@@ -93,8 +94,11 @@ def dice_prompt
       if guess_for_total.to_i == @d.dice_sum.to_i
       puts "Well since you guessed the right number you win some money."
       @current_player.wallet_balence = @current_player.wallet_balence.to_i + bet.to_i/2
+      puts "Your balance is #{@current_player.wallet_balence}"
+      dice_prompt
       else
-      puts "Well you dont win or loose and you also didnt guess the right number"
+      puts "Well you didnt guess right and you only lost #{bet.to_i/2}"
+      @current_player.wallet_balence = @current_player.wallet_balence.to_i - bet.to_i/2
       puts "Your balance is #{@current_player.wallet_balence}"
       dice_prompt
       end
