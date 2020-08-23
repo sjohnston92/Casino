@@ -18,13 +18,42 @@ def blackjack_start
  card_value_set(@d)
 p @d    
 
+#start dealling
 start_deal
 
+#show card TODO: hide dealer's first card
 puts "player hands:"
 show_card(@player_hand)
 puts
 puts "dealer hands"
 show_card(@dealer_hand)
+
+player_turn
+dealer_turn
+endgame
+
+end
+
+def player_turn
+# sum the player's card. if 21, black jack, pay 2.5 
+# sum the dealer card
+
+
+# Ask player Hit, Stand
+# Player hit, if over 21, but have A, take 10 out of the total score
+# if over 21, automatically lose
+
+
+end
+
+def dealer_turn
+# reveal Dealer's first card
+# if Stand, Dealer's total is less than 16, hit for dealer
+
+# if over 17, beat other card, Lose
+# if over 17, player card beat, win
+
+
 end
 
 def card_value_set(x)
@@ -64,25 +93,12 @@ def show_card(x)
     puts 
 end
 
-# dealer deal a card to player
-# dealer deal a card to dealer (may need to make it hidden)
-
-# dealer deal a card to player
-# dealer deal a card to dealer (may need to make it visible)
-
-# sum the player's card. if 21, black jack, pay 2.5 
-# sum the dealer card
-
-# Ask player Hit, Stand
-# Player hit, if over 21, but have A, take 10 out of the total score
-# if over 21, automatically lose
-
-# reveal Dealer's first card
-# if Stand, Dealer's total is less than 16, hit for dealer
-
-# if over 17, beat other card, Lose
-# if over 17, player card beat, win
-
+def endgame
 #Play again? if yes, go to blackjack_start
+
+
+#if not, return the following information back: Win/Lose Stats, Money Won.
+
+end
 
 blackjack_start
