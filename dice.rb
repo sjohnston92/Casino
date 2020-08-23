@@ -59,7 +59,7 @@ def dice_prompt
     @d.show_dice
     puts
     if @d.dice_sum.to_i == guess_for_total.to_i
-      puts "Winner, WInner Chicken Dinner"
+      puts "Winner, Winner Chicken Dinner"
       puts "You won #{bet}"
       @current_player.wallet_balence = @current_player.wallet_balence.to_i + bet.to_i
       puts "Your current balence is: #{@current_player.wallet_balence}"
