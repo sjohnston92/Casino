@@ -235,6 +235,7 @@ when 'n'
     puts "Thanks for playing."
 else 
     puts "try again"
+    endgame
 end
     #Play again? if yes, go to blackjack_start
 
