@@ -3,10 +3,17 @@
 
 require_relative "deck"
 require_relative "card"
-@player_bank = 1000 #need to change this to pull via game menu
+require_relative "customer"
+#@player_bank = 1000 #need to change this to pull via game menu
+
+def blackjack_setup
+@current_player=Customer.new(1000, "bob")
+#!!!! need to figure out how to pass customer between different games !!!
+@player_bank = @current_player.wallet
+blackjack_start
+end
 
 def blackjack_start
-
 #Create new Deck
 @d = Deck.new
 
@@ -42,7 +49,7 @@ endgame
 
 end
 
-def place_bet
+def place_bet 
     ###TODO: Add Bet here
 puts "Please place your bet (Available Balance: $#{@player_bank})"
 @player_bet = gets.chomp.to_i
@@ -226,6 +233,8 @@ def show_card(x)
 end
 
 def endgame
+
+    @current_player.wallet = @player_bank
 puts "Would you like to play again? (y/n)"
 user_selection = gets.chomp
 case user_selection
@@ -241,5 +250,3 @@ end
 #if not, return the following information back: Win/Lose Stats, Money Won.
 
 end
-
-blackjack_start
