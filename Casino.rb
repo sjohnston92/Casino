@@ -19,11 +19,12 @@ class Casino
       game_selected = gets.chomp.to_i
       case game_selected
       when 1
-        puts "Black Jack"
-        require_relative "blackjack"
-      when 2
         puts "Craps"
         require_relative "dice"
+        
+      when 2
+        puts "Black Jack"
+        require_relative "blackjack"
       when 3
         puts "High and low"
       when 4
