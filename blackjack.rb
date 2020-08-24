@@ -238,9 +238,6 @@ else
     endgame
 end
     #Play again? if yes, go to blackjack_start
-
-puts "End Game Options here to redo game or quit"
-
 #if not, return the following information back: Win/Lose Stats, Money Won.
 
 end
