@@ -1,7 +1,10 @@
+
 require_relative "deck"
 require_relative "card"
 
 class Highandlow 
+    @dealers_hand = []
+    
     def initialize
        @cards = Deck.new
        @cards.shuffle_cards
@@ -9,30 +12,34 @@ class Highandlow
     #placing two cards on desk only showing one 
     def cards
         puts "*** High and Low ***"
-        puts "Welcome to the game"
-        puts @cards.generate_deck
-        puts "Shuffling cards..."
-        
+        puts "Welcome Would you like to play a game (y/n)"
+        star_game=gets.chomp 
+        if star_game == 'y'
+            puts @cards.generate_deck
+            puts "Shuffling cards..."
+            puts "Place a bet is the cards 'higher' or 'lowwer'"
+            bet = gets.chomp
+            case bet
+            when 'higher'
+                higher
+            when 'lowwer'
+                puts "lowwer"
+            when 'Hold'
+            else
+                puts "invalid bet"
+            end
+        else
+            puts "Thank you for playing"
+            
+        end
     end
-#     #players place bet in a pull 
-#     def players
+    def higher
+        
 
-#     end     
-#     #second card gets reveal (while showing first one)
-#     #if right you win points(money)
-#     #else you lose your bet collect
-#      def winning_casses
+    end
+end
 
-#     end
-end 
 
  
 vic = Highandlow.new
-def display
 vic.cards
-end
-#random_cards = @cards[rand(@cards.length)]
-
-
-
-

@@ -34,3 +34,5 @@ require_relative "card"
   end
 end
 
+# victor = Deck.new 
+# victor = 
