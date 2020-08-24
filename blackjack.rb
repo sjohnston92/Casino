@@ -230,7 +230,7 @@ end
 
 def endgame
     @current_player.wallet = @player_bank
-    puts "Your wallet is now #{@player_bank} #{@current_player.wallet}"
+    #puts "Your wallet is now #{@player_bank} #{@current_player.wallet}"
     puts "Would you like to play again? (y/n)"
 user_selection = gets.chomp
 case user_selection
