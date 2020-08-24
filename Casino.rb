@@ -30,6 +30,7 @@ class Casino
         game_choice
       when 3
         puts "High and low"
+        load 'highandlow.rb'
         display_main_menu
         game_choice
       when 4
