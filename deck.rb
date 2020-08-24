@@ -14,8 +14,7 @@ require_relative "card"
  end
 
  def shuffle_cards
-  puts "shuffling cards"
-  @cards.shuffle
+   @cards.shuffle
  end
  
   def generate_deck
@@ -34,3 +33,4 @@ require_relative "card"
     end
   end
 end
+

@@ -2,6 +2,7 @@
 
 
 require_relative "customer"
+require_relative"casino"
 
 
 class Dice
@@ -33,7 +34,7 @@ class Dice
  end
 
 
-@current_player=Customer.new(100, "bob")
+@current_player=Customer.new(1000, "bob")
  
 #start of the game
 
@@ -41,19 +42,18 @@ def dice_prompt
   puts "Would you like to Play Craps and roll the dice? (y/n)"
   start_answer = gets.chomp
   if start_answer == "y" && @current_player.wallet_balence > 0
-    puts "Place your bet. You have #{@current_player.wallet_balence} chips left"
+    puts "Place your bet. You have $#{@current_player.wallet_balence} chips left"
     bet = gets.chomp
     while true
       if (@current_player.wallet_balence.to_i - bet.to_i) < 0
         puts "You dont have that much to bet, please replace your bet!"
         bet = gets.chomp
-        break
-
+        dice_prompt
       else
         break
       end
     end
-    if bet.to_i >= 25
+    if bet.to_i >= 250
       puts bet.to_s + "! We have a high roller in the house everyone!"
       puts "I'll roll two dice. What do you think the total will be?"
     else
@@ -80,7 +80,7 @@ def dice_prompt
       end
     when 2
       puts "Snake Eyes, You Lost big time"
-      puts "You lost #{bet.to_i*2}"
+      puts "You lost #{bet.*2}"
       @current_player.wallet_balence = @current_player.wallet_balence.to_i - bet.to_i*2
       puts "Your balance is #{@current_player.wallet_balence}"
       dice_prompt
@@ -116,6 +116,11 @@ end
 
 
 dice_prompt
+
+
+
+#Start of the  app running all games and displays.
+
 
 
 # dice_prompt

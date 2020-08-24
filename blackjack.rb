@@ -232,7 +232,7 @@ case user_selection
 when 'y'
     blackjack_start
 when 'n'
-    exit
+    puts "Thanks for playing."
 else 
     puts "try again"
 end
