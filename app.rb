@@ -1,8 +1,7 @@
-require_relative "dice"
+
 require_relative "customer"
 require_relative "casino"
 require_relative "games"
-require_relative "blackjack"
 
 #This is where will load up the customers, games and prompt
 def casino_floor
@@ -14,11 +13,18 @@ def casino_floor
   all_games = [game1, game2, game3, game4]
 
   casino_floor= Casino.new(all_games)
+  
 end
 
 #Start of the  app running all games and displays.
-
+loop do
+  
  casino_floor.display_main_menu
+ casino_floor.game_choice
+end
+
+
+
 
 
  
