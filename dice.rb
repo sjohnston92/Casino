@@ -32,7 +32,7 @@ class Dice
 
 
 
-@current_player=Customer.new(1000, "bob")
+
  
 #start of the game
 

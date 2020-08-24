@@ -21,13 +21,23 @@ class Casino
       when 1
         puts "Craps"
         require_relative "dice"
+        display_main_menu
+        game_choice
       when 2
         puts "Black Jack"
         require_relative "blackjack"
+        display_main_menu
+        game_choice
       when 3
         puts "High and low"
+        #Victor put your game here
+        display_main_menu
+        game_choice
       when 4
         puts "Slots"
+        #Scott put your game here
+        display_main_menu
+        game_choice
       when 0
         puts "Good Bye, Better luck next time."
         exit
