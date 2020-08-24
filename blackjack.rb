@@ -82,7 +82,7 @@ if @player_score == 21 #need to add count of card, if 2, go this, else, ignore t
     puts "BLACKJACK!"
     @player_bet = (@player_bet * 3)
     puts "You have won $#{@player_bet}"
-    @player_bank =+ @player_bet
+    @player_bank += @player_bet
     endgame #win bet
     exit
 
@@ -137,7 +137,9 @@ def dealer_turn
         puts "Dealer have hit the limit"
         compare_card
     when 22..30 then
-        puts "Dealer Busted, you Win!"
+        @player_bet = @player_bet * 2
+        puts "Dealer busted! you win $#{@player_bet}!"
+        @player_bank += @player_bet
         #Add player winning bet
         endgame
         exit
@@ -148,7 +150,17 @@ def dealer_turn
 end
 
 def compare_card
-    puts "Comparing card."
+    if @player_score > @dealer_score
+        @player_bet = @player_bet * 2
+        puts "You win $#{@player_bet}!"
+        @player_bank += @player_bet
+    elsif @player_score < @dealer_score
+        puts "You lose! :("
+    elsif @player_score == @dealer_score
+        puts "It is a tie. Nice try!" 
+        @player_bank += @player_bet
+    end
+
 end
 
 def card_value_set(x)
