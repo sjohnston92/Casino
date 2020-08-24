@@ -15,7 +15,7 @@ class Casino
       @craps=Dice.new
     end
     def game_choice
-      puts"Select which game you would like to play?"
+    puts"Select which game you would like to play? to quit press (q)"
       game_selected = gets.chomp.to_i
       case game_selected
       when 1
