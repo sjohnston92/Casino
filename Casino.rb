@@ -21,7 +21,6 @@ class Casino
       when 1
         puts "Craps"
         require_relative "dice"
-        
       when 2
         puts "Black Jack"
         require_relative "blackjack"

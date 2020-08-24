@@ -29,9 +29,7 @@ class Dice
   end 
  end
 
- def craps_roll
 
- end
 
 
 @current_player=Customer.new(1000, "bob")
