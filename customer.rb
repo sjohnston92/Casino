@@ -1,8 +1,8 @@
 class Customer
-  attr_accessor :wallet_balence, :name
+  attr_accessor :wallet, :name
   
-    def initialize(wallet_balence,name)
-      @wallet_balence = wallet_balence
+    def initialize(wallet,name)
+      @wallet = wallet
       @name = name
     end
     
