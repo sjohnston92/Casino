@@ -1,19 +1,15 @@
 ############ Black Jack ############
 # by Jon Roberts
-
+require_relative "customer"
+require_relative "casino"
 require_relative "deck"
 require_relative "card"
-require_relative "customer"
+
+
 #@player_bank = 1000 #need to change this to pull via game menu
 
-def blackjack_setup
-@current_player=Customer.new(1000, "bob")
-#!!!! need to figure out how to pass customer between different games !!!
-@player_bank = @current_player.wallet
-blackjack_start
-end
-
 def blackjack_start
+@player_bank = @current_player.wallet
 #Create new Deck
 @d = Deck.new
 
@@ -242,6 +238,7 @@ when 'y'
     blackjack_start
 when 'n'
     puts "Thanks for playing."
+    casino_floor
 else 
     puts "try again"
     endgame
@@ -250,3 +247,4 @@ end
 #if not, return the following information back: Win/Lose Stats, Money Won.
 
 end
+blackjack_start

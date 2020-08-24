@@ -1,4 +1,4 @@
-require_relative "blackjack"
+#require_relative "blackjack"
 
 class Casino
   attr_accessor :casinogames 
@@ -27,7 +27,7 @@ class Casino
         game_choice
       when 2
         puts "Black Jack"
-        blackjack_setup
+        load 'blackjack.rb'
         display_main_menu
         game_choice
       when 3
