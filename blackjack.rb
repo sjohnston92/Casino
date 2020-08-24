@@ -229,16 +229,16 @@ def show_card(x)
 end
 
 def endgame
-
     @current_player.wallet = @player_bank
-puts "Would you like to play again? (y/n)"
+    puts "Your wallet is now #{@player_bank} #{@current_player.wallet}"
+    puts "Would you like to play again? (y/n)"
 user_selection = gets.chomp
 case user_selection
 when 'y'
     blackjack_start
 when 'n'
     puts "Thanks for playing."
-    casino_floor
+    
 else 
     puts "try again"
     endgame

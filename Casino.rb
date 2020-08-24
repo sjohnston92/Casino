@@ -1,5 +1,3 @@
-#require_relative "blackjack"
-
 class Casino
   attr_accessor :casinogames 
 
