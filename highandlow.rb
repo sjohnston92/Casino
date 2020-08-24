@@ -34,12 +34,9 @@ class Highandlow
         end
     end
     def higher
-        
-
+        puts @cards.display_cards
     end
 end
 
-
- 
 vic = Highandlow.new
 vic.cards
