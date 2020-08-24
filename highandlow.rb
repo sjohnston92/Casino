@@ -12,22 +12,25 @@ class Highandlow
         puts "Welcome to the game"
         puts @cards.generate_deck
         puts "Shuffling cards..."
-        @cards.display_cards
+        
     end
-    #players place bet in a pull 
-    def players
+#     #players place bet in a pull 
+#     def players
 
-    end     
-    #second card gets reveal (while showing first one)
-    #if right you win points(money)
-    #else you lose your bet collect
-    def winning_casses
+#     end     
+#     #second card gets reveal (while showing first one)
+#     #if right you win points(money)
+#     #else you lose your bet collect
+#      def winning_casses
 
-    end
+#     end
 end 
+
  
 vic = Highandlow.new
+def display
 vic.cards
+end
 #random_cards = @cards[rand(@cards.length)]
 
 
