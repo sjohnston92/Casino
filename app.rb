@@ -11,9 +11,10 @@ def casino_floor
   game4 =Games.new("Slots")
 
   all_games = [game1, game2, game3, game4]
-  
+
   @current_player=Customer.new(1000, "bob")
   casino_floor= Casino.new(all_games)
+
   
 end
 

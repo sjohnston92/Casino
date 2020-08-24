@@ -20,12 +20,12 @@ class Casino
       case game_selected
       when 1
         puts "Craps"
-        require_relative "dice"
+        load 'dice.rb'
         display_main_menu
         game_choice
       when 2
         puts "Black Jack"
-        require_relative "blackjack"
+        load 'blackjack.rb'
         display_main_menu
         game_choice
       when 3
